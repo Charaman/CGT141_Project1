@@ -1,1 +1,49 @@
+nav{
+    background-color: #ffd235;
+    border-bottom: black;
+}
+nav ul{
+    list-style: none;
+    display: flex;
+}
+nav .home-li{
+    margin-right:auto;
+}
+nav a{
+    display: flex;
+    text-decoration: none;
+    color: black;
+    padding: 1em 2em;
+    transition: bockground-color 150ms ease;
+}
+nav a:hover{
+    background-color:#FFc300;
+}
+nav a.active{
+    border-bottom:black;
+}
+/* navigation bar is above */
 
+body {
+    background: url("../images/B1.jpg");
+    background-size:cover;
+}
+.container{
+    color:white;
+    font-size: medium;
+}
+.img_container{
+    align-items:center;
+    margin:20em;
+    padding:30px;
+    margin-top: 2em;
+}
+img{
+   width:450px;
+   height:450px;
+   align-items:center;
+}
+html{
+    scrollbar-color: #febd14 #c30010;
+    scrollbar-width: 0px;
+}
