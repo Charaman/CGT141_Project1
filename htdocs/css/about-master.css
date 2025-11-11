@@ -22,6 +22,12 @@ nav a:hover{
 nav a.active{
     border-bottom:white;
 }
+nav .home-li{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+nav .about-li{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 /* navigation bar is above */
 body {
     background: url("../images/B1.jpg");
@@ -34,6 +40,8 @@ body {
 }
 .title{
     margin-top:3em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px;
 }
 .name_list{
     line-height: 8px;
