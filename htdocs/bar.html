@@ -1,11 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>RLIC's_barRoom</title>
     <link rel="icon" type="image/x-icon" href="images/TheRedLotusInternetCasino_Logo_6.png"/>
     <link rel="stylesheet" href="css/bar.css">
+    <style>
+        body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
+        nav { z-index: 50; background-color: #ffd235; border-bottom: black; }
+        nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+        nav .home-li { margin-right: auto; }
+        nav a { display: flex; text-decoration: none; color: black; padding: 1em 2em; }
+        nav a:hover { background-color:#FFc300; }
+        nav a.active { border-bottom:black; }
+
+        .main-content { width: 100%; max-width: 1200px; margin: 0 auto; padding: 20px; box-sizing: border-box; flex: 1; }
+        .puzzle-header-box { width: 90%; margin: 20px auto; background: rgba(255,210,53,0.95); border: 3px solid black; padding: 18px 24px; border-radius: 10px; text-align: center; box-shadow: 0 0 12px rgba(0,0,0,0.35); }
+        .puzzle-title { margin: 0 0 6px 0; color: #000; font-family: inherit; }
+        .puzzle-instructions { margin: 0; color: #111; }
+
+        .drink-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; width: 90%; margin: 28px auto; align-items: start; }
+        .drink { background: rgba(255,255,255,0.02); padding: 10px; border-radius: 10px; text-align: center; cursor: pointer; user-select: none; border: 2px solid rgba(0,0,0,0.3); box-shadow: 0 6px 18px rgba(0,0,0,0.45); }
+        .drink img { width: 100%; height: auto; border-radius: 8px; display: block; }
+        .drink-clue { margin-top: 10px; padding: 8px; background: rgba(255,210,53,0.9); border-radius: 6px; font-weight: 700; color: #000; border: 2px solid black; }
+
+        .bottom-flex { display: flex; justify-content: center; align-items: center; gap: 36px; width: 90%; margin: 18px auto 42px auto; flex-wrap: wrap; }
+        .Next_Level img { width: 210px; border: 3px solid black; border-radius: 8px; display: block; }
+        .code-entry { text-align: center; background: rgba(255,210,53,0.95); padding: 18px; border-radius: 10px; border: 3px solid black; width: 360px; box-sizing: border-box; }
+        .code-entry input { padding: 10px; width: 70%; border-radius: 6px; border: 2px solid black; font-size: 1rem; box-sizing: border-box; }
+        .code-entry button { padding: 10px 18px; margin-left: 8px; background: #ffd235; border: 2px solid black; border-radius: 6px; cursor: pointer; font-weight: 700; }
+        .code-message { margin-top: 8px; font-weight: 700; }
+
+        .popup-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); justify-content: center; align-items: center; z-index: 200; }
+        .popup-window { background: #ffd235; padding: 28px; border-radius: 12px; text-align: center; border: 3px solid black; min-width: 280px; }
+        .popup-code { font-size: 2rem; font-weight: 900; margin: 12px 0 6px 0; }
+
+        @media (max-width: 900px) {
+            .drink-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+            .Next_Level img { width: 160px; }
+            .code-entry { width: 300px; }
+        }
+        @media (max-width: 520px) {
+            .drink-grid { grid-template-columns: 1fr; width: 95%; }
+            .bottom-flex { flex-direction: column-reverse; gap: 14px; }
+            .Next_Level img { width: 100%; max-width: 260px; }
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -15,110 +56,145 @@
         </ul>
     </nav>
 
-   <div class="puzzle-header-box">
-    <h1 class="puzzle-title">Choose the Correct Drink</h1>
-    <p class="puzzle-instructions">
-        Each drink has a clue underneath. Only one clue leads to the correct access code.
-    </p>
-</div>
-
-
-    <div class="drink-grid">
-
-        <div class="drink">
-            <img src="images/drink1.png" alt="Drink 1">
-            <p class="drink-clue">I look refreshing, but I hold no answers.</p>
+    <div class="main-content">
+        <div class="puzzle-header-box">
+            <h1 class="puzzle-title">Choose the Correct Drink</h1>
+            <p class="puzzle-instructions">Each drink has a clue underneath. Only one clue leads to the correct access code.</p>
         </div>
 
-        <div class="drink">
-            <img src="images/drink2.png" alt="Drink 2">
-            <p class="drink-clue">My clue points left, but the truth is right.</p>
+        <div class="drink-grid" aria-label="Drinks list">
+            <div class="drink" data-index="1" tabindex="0" role="button" aria-pressed="false">
+                <img src="images/drink1.png" alt="Drink 1">
+                <p class="drink-clue">I look refreshing, but I hold no answers.</p>
+            </div>
+
+            <div class="drink" data-index="2" tabindex="0" role="button" aria-pressed="false">
+                <img src="images/drink2.png" alt="Drink 2">
+                <p class="drink-clue">My clue points left, but the truth is right.</p>
+            </div>
+
+            <div class="drink" data-index="3" tabindex="0" role="button" aria-pressed="false">
+                <img src="images/drink3.png" alt="Drink 3">
+                <p class="drink-clue">I claim to be correct… but I lie.</p>
+            </div>
+
+            <div class="drink" data-index="4" tabindex="0" role="button" aria-pressed="false">
+                <img src="images/drink4.png" alt="Drink 4">
+                <p class="drink-clue correct">My clue says nothing, yet reveals everything.</p>
+            </div>
+
+            <div class="drink" data-index="5" tabindex="0" role="button" aria-pressed="false">
+                <img src="images/drink5.png" alt="Drink 5">
+                <p class="drink-clue">A drink of wisdom… but not today.</p>
+            </div>
+
+            <div class="drink" data-index="6" tabindex="0" role="button" aria-pressed="false">
+                <img src="images/drink6.png" alt="Drink 6">
+                <p class="drink-clue">Look beyond me. Literally.</p>
+            </div>
+
+            <div class="drink" data-index="7" tabindex="0" role="button" aria-pressed="false">
+                <img src="images/drink7.png" alt="Drink 7">
+                <p class="drink-clue">My clue looks promising but leads nowhere.</p>
+            </div>
+
+            <div class="drink" data-index="8" tabindex="0" role="button" aria-pressed="false">
+                <img src="images/drink8.png" alt="Drink 8">
+                <p class="drink-clue">You already passed the right choice.</p>
+            </div>
         </div>
 
-        <div class="drink">
-            <img src="images/drink3.png" alt="Drink 3">
-            <p class="drink-clue">I claim to be correct… but I lie.</p>
-        </div>
+        <div class="bottom-flex">
+            <div class="Next_Level">
+                <img src="images/button5forbar.png" alt="button 5"></a>
+            </div>
 
-        <div class="drink" onclick="showCode()">
-            <img src="images/drink4.png" alt="Drink 4">
-            <p class="drink-clue correct">My clue says nothing, yet reveals everything.</p>
+            <div class="code-entry" aria-label="Access code entry">
+                <h2>Enter Access Code</h2>
+                <div>
+                    <input type="text" id="codeInput" placeholder="Enter code…" maxlength="10" aria-label="Access code input">
+                    <button id="submitBtn">Submit</button>
+                </div>
+                <p id="codeMessage" class="code-message" aria-live="polite"></p>
+            </div>
         </div>
-
-        <div class="drink">
-            <img src="images/drink5.png" alt="Drink 5">
-            <p class="drink-clue">A drink of wisdom… but not today.</p>
-        </div>
-
-        <div class="drink">
-            <img src="images/drink6.png" alt="Drink 6">
-            <p class="drink-clue">Look beyond me. Literally.</p>
-        </div>
-
-        <div class="drink">
-            <img src="images/drink7.png" alt="Drink 7">
-            <p class="drink-clue">My clue looks promising but leads nowhere.</p>
-        </div>
-
-        <div class="drink">
-            <img src="images/drink8.png" alt="Drink 8">
-            <p class="drink-clue">You already passed the right choice.</p>
-        </div>
-
     </div>
 
-    <div id="popup" class="popup-overlay" onclick="closePopup()">
-        <div class="popup-window">
+    <div id="popup" class="popup-overlay" role="dialog" aria-modal="true" aria-hidden="true" onclick="closePopup()">
+        <div class="popup-window" role="document" onclick="event.stopPropagation()">
             <h2>Access Code:</h2>
-            <p class="popup-code">425</p>
+            <p class="popup-code" id="popupCode">425</p>
             <p class="popup-close-text">(click anywhere to close)</p>
         </div>
     </div>
 
     <script>
-        function showCode() {
-            document.getElementById("popup").style.display = "flex";
-        }
-        function closePopup() {
-            document.getElementById("popup").style.display = "none";
-        }
+        (function(){
+            const grid = document.querySelector(".drink-grid");
+            let drinks = Array.from(grid.querySelectorAll(".drink"));
+            const correctIndex = "4";
+            const popup = document.getElementById("popup");
+            const popupCodeEl = document.getElementById("popupCode");
+
+            function handleDrinkClick(target) {
+                const el = target.closest(".drink");
+                if (!el) return;
+                const idx = el.dataset.index;
+                if (idx === correctIndex) {
+                    showCode();
+                } else {
+                    shuffleDrinks();
+                }
+            }
+
+            grid.addEventListener("click", function(e){
+                handleDrinkClick(e.target);
+            });
+
+            grid.addEventListener("keydown", function(e){
+                if (e.key === "Enter" || e.key === " ") {
+                    handleDrinkClick(e.target);
+                    e.preventDefault();
+                }
+            });
+
+            function shuffleDrinks() {
+                for (let i = drinks.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [drinks[i], drinks[j]] = [drinks[j], drinks[i]];
+                }
+                grid.innerHTML = "";
+                drinks.forEach(d => grid.appendChild(d));
+            }
+
+            window.showCode = function() {
+                popupCodeEl.textContent = "425";
+                popup.style.display = "flex";
+                popup.setAttribute("aria-hidden", "false");
+            };
+            window.closePopup = function() {
+                popup.style.display = "none";
+                popup.setAttribute("aria-hidden", "true");
+            };
+
+            document.getElementById("submitBtn").addEventListener("click", function(){
+                const correctCode = "425";
+                const user = document.getElementById("codeInput").value.trim();
+                const msg = document.getElementById("codeMessage");
+                if (user === correctCode) {
+                    window.location.href = "blackJack.html";
+                } else {
+                    msg.textContent = "Incorrect code. Try again.";
+                    msg.style.color = "red";
+                }
+            });
+
+            const observer = new MutationObserver(() => { drinks = Array.from(grid.querySelectorAll(".drink")); });
+            observer.observe(grid, { childList: true });
+        })();
     </script>
-
-     <div class="bottom-flex">
-
-    <div class="Next_Level">
-        <a href="roulette.html">
-            <img src="images/button 5.png" alt="button 5">
-        </a>
-    </div>
-
-     <div class="code-entry">
-        <h2>Enter Access Code</h2>
-        <input type="text" id="codeInput" placeholder="Enter code…" maxlength="10">
-        <button onclick="submitCode()">Submit</button>
-        <p id="codeMessage" class="code-message"></p>
-    </div>
-
-</div>
-
-
-    <script>
-         function submitCode() {
-             const correctCode = "425";  // <-- change this anytime
-             const userCode = document.getElementById("codeInput").value.trim();
-            const msg = document.getElementById("codeMessage");
-
-        if (userCode === correctCode) {
-            window.location.href = "blackJack.html";   // <-- where success leads
-        } else {
-            msg.textContent = "Incorrect code. Try again.";
-            msg.style.color = "red";
-        }
-    }
-</script>
-
 </body>
 </html>
 
 
-// Upload bar.css , bar.html, and upload 9 images
+// upload bar.html, bar.css, button5forbar AND change slotMachines
