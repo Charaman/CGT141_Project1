@@ -1,0 +1,183 @@
+nav{
+    background-color: #ffd235;
+    border-bottom: black;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+}
+
+nav .home-li{
+    margin-right:auto;
+}
+
+nav a{
+    display: flex;
+    text-decoration: none;
+    color: black;
+    padding: 1em 2em;
+    transition: bockground-color 150ms ease;
+}
+
+nav a:hover{
+    background-color:#FFc300;
+}
+
+nav a.active{
+    border-bottom:black;
+}
+
+body {
+    background: url("../images/BarBackground.jpg");
+    background-size:cover;
+}
+
+/*      DRINK PUZZLE STYLE     */
+
+.puzzle-title {
+    text-align: center;
+    color: #000;
+    margin-top: 40px;
+    text-shadow: 2px 2px 5px rgba(255,255,255,0.4);
+}
+
+.puzzle-instructions {
+    text-align: center;
+    color: #111;
+    margin-bottom: 20px;
+}
+
+.drink-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    padding: 20px;
+    width: 80%;
+    margin: auto;
+}
+
+.drink img {
+    width: 100%;
+    border-radius: 10px;
+    border: 3px solid #ffd235;
+    background-color: rgba(255,255,255,0.7);
+    transition: transform 0.2s ease;
+}
+
+.drink img:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.drink-clue {
+    text-align: center;
+    background: rgba(255,210,53,0.85);
+    border-radius: 5px;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    font-weight: bold;
+}
+
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.75);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-window {
+    background: #ffd235;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    border: 3px solid black;
+}
+
+.popup-code {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.popup-close-text {
+    font-size: 0.9em;
+    margin-top: 12px;
+    opacity: 0.7;
+}
+
+.code-entry {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    background: rgba(255,210,53,0.8);
+    padding: 20px;
+    width: 350px;
+    border-radius: 10px;
+    border: 3px solid black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.code-entry input {
+    padding: 10px;
+    width: 70%;
+    border-radius: 5px;
+    border: 2px solid black;
+    font-size: 1em;
+}
+
+.code-entry button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    background: #ffd235;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.code-entry button:hover {
+    background: #ffc300;
+}
+
+.code-message {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.puzzle-header-box {
+    width: 70%;
+    margin: 30px auto 20px auto;
+    background: rgba(255,210,53,0.9); /* your yellow theme */
+    border: 3px solid black;
+    padding: 20px 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.puzzle-header-box h1 {
+    margin-top: 0;
+}
+
+.puzzle-header-box p {
+    margin-bottom: 0;
+}
+
+.bottom-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.Next_Level img {
+    width: 500px;
+    cursor: pointer;
+}
