@@ -1,51 +1,55 @@
-nav{
+nav {
     background-color: #ffd235;
-    border-bottom: black;
+    border-bottom: 3px solid black;
 }
 
-nav ul{
+nav ul {
     list-style: none;
     display: flex;
 }
 
-nav .home-li{
-    margin-right:auto;
+nav .home-li {
+    margin-right: auto;
 }
 
-nav a{
+nav a {
     display: flex;
     text-decoration: none;
     color: black;
     padding: 1em 2em;
-    transition: bockground-color 150ms ease;
+    transition: background-color 150ms ease;
 }
 
-nav a:hover{
-    background-color:#FFc300;
+nav a:hover {
+    background-color: #ffc300;
 }
 
-nav a.active{
-    border-bottom:black;
+nav a.active {
+    border-bottom: 3px solid black;
 }
 
 body {
     background: url("../images/BarBackground.jpg");
-    background-size:cover;
+    background-size: cover;
 }
 
-/*      DRINK PUZZLE STYLE     */
-
-.puzzle-title {
+.puzzle-header-box {
+    width: 70%;
+    margin: 30px auto 20px auto;
+    background: rgba(255,210,53,0.9);
+    border: 3px solid black;
+    padding: 20px 30px;
+    border-radius: 10px;
     text-align: center;
-    color: #000;
-    margin-top: 40px;
-    text-shadow: 2px 2px 5px rgba(255,255,255,0.4);
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
 
-.puzzle-instructions {
-    text-align: center;
-    color: #111;
-    margin-bottom: 20px;
+.puzzle-header-box h1 {
+    margin-top: 0;
+}
+
+.puzzle-header-box p {
+    margin-bottom: 0;
 }
 
 .drink-grid {
@@ -150,34 +154,14 @@ body {
     font-weight: bold;
 }
 
-.puzzle-header-box {
-    width: 70%;
-    margin: 30px auto 20px auto;
-    background: rgba(255,210,53,0.9); /* your yellow theme */
-    border: 3px solid black;
-    padding: 20px 30px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 0 10px rgba(0,0,0,0.4);
-}
-
-.puzzle-header-box h1 {
-    margin-top: 0;
-}
-
-.puzzle-header-box p {
-    margin-bottom: 0;
-}
-
 .bottom-flex {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
     margin-top: 40px;
 }
 
 .Next_Level img {
-    width: 500px;
     cursor: pointer;
 }
+
