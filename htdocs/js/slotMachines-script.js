@@ -1,4 +1,4 @@
- // --------------------------
+  // --------------------------
 // Fruit definitions
 // --------------------------
 const FRUITS = [
@@ -34,7 +34,12 @@ function fillReel(reel, repeats = 4) {
 
 function stopReel(reel, fruitName){
   const fruit = FRUIT_BY_NAME[fruitName]; //0, 1, or 2
-  reel.innerHTML = `<img src="images/${fruit.img}>`;
+
+  if (!fruit) {
+    console.error("Unknown fruit name:", fruitName);
+    return;
+  }
+  reel.innerHTML = `<img src="images/${fruit.img}">`;
 
   return fruit;
 }
@@ -102,12 +107,12 @@ document.getElementById("spinBtn").onclick = () => {
 
   setTimeout(() => {
     reel2.classList.remove("spin");
-    final2 = stopReel(reel2, pattern[0]);
+    final2 = stopReel(reel2, pattern[1]);
   }, 1800);
 
   setTimeout(() => {
     reel3.classList.remove("spin");
-    final3 = stopReel(reel3, pattern[0]);
+    final3 = stopReel(reel3, pattern[2]);
   }, 2400);
 };
 
