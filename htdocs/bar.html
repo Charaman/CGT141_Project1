@@ -5,8 +5,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RLIC's_barRoom</title>
     <link rel="icon" type="image/x-icon" href="images/TheRedLotusInternetCasino_Logo_6.png"/>
+    <link rel="stylesheet" href="css/bar.css">
 </head>
 <body>
-    
+    <nav>
+        <ul>
+            <li class="home-li"><a href="index.html">Home</a></li>
+            <li class="about"><a class="active" href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+   <div class="puzzle-header-box">
+    <h1 class="puzzle-title">Choose the Correct Drink</h1>
+    <p class="puzzle-instructions">
+        Each drink has a clue underneath. Only one clue leads to the correct access code.
+    </p>
+</div>
+
+
+    <div class="drink-grid">
+
+        <div class="drink">
+            <img src="images/drink1.png" alt="Drink 1">
+            <p class="drink-clue">I look refreshing, but I hold no answers.</p>
+        </div>
+
+        <div class="drink">
+            <img src="images/drink2.png" alt="Drink 2">
+            <p class="drink-clue">My clue points left, but the truth is right.</p>
+        </div>
+
+        <div class="drink">
+            <img src="images/drink3.png" alt="Drink 3">
+            <p class="drink-clue">I claim to be correct… but I lie.</p>
+        </div>
+
+        <div class="drink" onclick="showCode()">
+            <img src="images/drink4.png" alt="Drink 4">
+            <p class="drink-clue correct">My clue says nothing, yet reveals everything.</p>
+        </div>
+
+        <div class="drink">
+            <img src="images/drink5.png" alt="Drink 5">
+            <p class="drink-clue">A drink of wisdom… but not today.</p>
+        </div>
+
+        <div class="drink">
+            <img src="images/drink6.png" alt="Drink 6">
+            <p class="drink-clue">Look beyond me. Literally.</p>
+        </div>
+
+        <div class="drink">
+            <img src="images/drink7.png" alt="Drink 7">
+            <p class="drink-clue">My clue looks promising but leads nowhere.</p>
+        </div>
+
+        <div class="drink">
+            <img src="images/drink8.png" alt="Drink 8">
+            <p class="drink-clue">You already passed the right choice.</p>
+        </div>
+
+    </div>
+
+    <div id="popup" class="popup-overlay" onclick="closePopup()">
+        <div class="popup-window">
+            <h2>Access Code:</h2>
+            <p class="popup-code">425</p>
+            <p class="popup-close-text">(click anywhere to close)</p>
+        </div>
+    </div>
+
+    <script>
+        function showCode() {
+            document.getElementById("popup").style.display = "flex";
+        }
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
+
+     <div class="bottom-flex">
+
+    <div class="Next_Level">
+        <a href="roulette.html">
+            <img src="images/button 5.png" alt="button 5">
+        </a>
+    </div>
+
+     <div class="code-entry">
+        <h2>Enter Access Code</h2>
+        <input type="text" id="codeInput" placeholder="Enter code…" maxlength="10">
+        <button onclick="submitCode()">Submit</button>
+        <p id="codeMessage" class="code-message"></p>
+    </div>
+
+</div>
+
+
+    <script>
+         function submitCode() {
+             const correctCode = "425";  // <-- change this anytime
+             const userCode = document.getElementById("codeInput").value.trim();
+            const msg = document.getElementById("codeMessage");
+
+        if (userCode === correctCode) {
+            window.location.href = "blackJack.html";   // <-- where success leads
+        } else {
+            msg.textContent = "Incorrect code. Try again.";
+            msg.style.color = "red";
+        }
+    }
+</script>
+
 </body>
 </html>
+
+
+// Upload bar.css , bar.html, and upload 9 images
