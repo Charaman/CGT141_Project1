@@ -5,6 +5,8 @@ nav{
 nav ul{
     list-style: none;
     display: flex;
+    padding: 0;
+    margin: 0;
 }
 nav .home-li{
     margin-right:auto;
@@ -14,46 +16,83 @@ nav a{
     text-decoration: none;
     color: black;
     padding: 1em 2em;
-    transition: bockground-color 150ms ease;
+    transition: background-color 150ms ease;
 }
 nav a:hover{
     background-color:#FFc300;
 }
 nav a.active{
-    border-bottom:black;
+    border-bottom: 3px solid black; 
 }
-nav .home-li{
+nav .home-li,
+nav .about-li {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
-nav .about-li{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-/* navigation bar is above */
 
 body {
     background: url("../images/B1.jpg");
     background-size:cover;
+    min-height: 100vh; 
+    margin: 0;
 }
+
 .container{
-    color:white;
+    color: black;
     font-size: medium;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 30px auto;
+    background-color: #FFc300;
+    border: 5px solid black;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
-.img_container{
-    align-items:center;
-    margin:20em;
-    padding:30px;
-    margin-top: 2em;
-}
-img{
-   width:450px;
-   height:450px;
-   align-items:center;
-}
-html{
-    scrollbar-color: #febd14 #c30010;
-    scrollbar-width: 0px;
-}
+
 #title{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-align: center;
+}
+
+.divider {
+    color: black; 
+}
+
+.img_container {
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    margin-top: 0.5em; 
+    padding: 10px; 
+}
+
+.row-top {
+    display: flex; 
+    justify-content: center; 
+    gap: 30px; 
+    margin-bottom: 5px; 
+    flex-wrap: wrap; 
+}
+
+.row-bottom {
+    display: flex; 
+    justify-content: center; 
+    gap: 30px; 
+    margin-bottom: 30px; 
+    flex-wrap: wrap; 
+}
+
+img {
+    width: 400px; 
+    height: 400px;
+    transition: transform 0.2s ease-in-out; 
+    display: block;
+}
+
+img:hover {
+    transform: scale(1.05); 
+}
+
+html{
+    scrollbar-color: #febd14 #c30010;
+    scrollbar-width: 0px;
 }
