@@ -1,63 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0">
-	<title>RLIC's_slotMachineRoom</title>
-	<link rel="icon" type="image/x-icon" href="images/TheRedLotusInternetCasino_Logo_6.png"/>
-	<link rel="stylesheet" href="css/slotMachines-master.css">
-
-    <script>src="js/slotMachine-script.js"</script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>RLIC's_slotMachineRoom</title>
+    <link rel="icon" type="image/x-icon" href="images/TheRedLotusInternetCasino_Logo_6.png"/>
+    <link rel="stylesheet" href="css/slotMachines-master.css">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-/* incomplete
 </head>
 
 <body>
     <nav>
         <ul>
             <li class="home-li"><a href="index.html">Home</a></li>
-            <li class="feedback-li"><a class="active" href="feedback.html">feedback</a></li>
+            <li class="about-li"><a class="active" href="about.html">About</a></li>
         </ul>
     </nav>
 
-    	<div class="slotMachine">
-    		<img src="images/slotMachineFinished.png" alt="slot machine" class="base-image"></img>
+    <div class="slotMachine">
+        <img src="images/slotMachineFinished.png" alt="slot machine" class="base-image"></img>
 
+        <div id="slot-machine">
+            <div id="reel1" class="reel"></div>
+            <div id="reel2" class="reel"></div>
+            <div id="reel3" class="reel"></div>
+        </div>
+        
+        <img id="handleUp" src="images/handle1.png" class="handle">
+        <img id="handleDown" src="images/handle2.png"class="handle hidden">
+        <button id="spinBtn" class="handle-button"></button>
+
+        <div id="results"></div>
+
+        <div id="codeArea">
+            <h2>Enter Access Code</h2>
+            <input id="codeInput" maxlength="3" type="text" pattern="\d{3}">
+            <br>
+            <button onclick="validateAccessCode()">Submit</button>
+            <p id="msg"></p>
+        </div>
+    </div>
+
+    <script>
+        function validateAccessCode() {
+            const correctCode = "000"; 
+            const inputElement = document.getElementById("codeInput");
+            const msgElement = document.getElementById("msg"); 
             
+            const enteredCode = inputElement.value.trim();
 
-    		<img src="images/SlotMachineFinished3.png" alt="slot machine open" class="open-machine"></img>
-
-            <div id="slot-machine">
-                <div id="reel1" class="reel"></div>
-                <div id="reel2" class="reel"></div>
-                <div id="reel3" class="reel"></div>
-            </div>
-
-            <img id="handleUp" src="images/handle1.png" class="handle">
-            <img id="handleDown" src="images/handle2.png"class="handle hidden">
-
-            <button id="spinBtn" class="handle-button"></button>
-
-            <div id="results"></div>
-
-            <div id="codeArea">
-                <h2>Enter 3-Digit Code</h2>
-                <input id="codeInput" maxlength="3">
-                <br>
-                <button onclick="checkCode()">Submit</button>
-                <p id="msg"></p>
-
-                <button id="nextBtn" disabled href="roulette.html">
-                    <img src="images/button2.png"></img>
-                </button>
-
-            </div>
-    	</div>
-
-<script src="js/slotMachines-script.js"></script> 
+            if (enteredCode === correctCode) {
+                msgElement.textContent = 'Access Granted! Redirecting...';
+                msgElement.style.color = 'green';
+                
+                setTimeout(function() {
+                    window.location.href = "roulette.html"; 
+                }, 1000); 
+                
+            } else {
+                msgElement.textContent = "Incorrect Code. Try again.";
+                msgElement.style.color = "red";
+                inputElement.value = '';
+            }
+        }
+    </script>
+    
+    <script src="js/slotMachines-script.js"></script> 
 
 </body>
 </html>
-
-    		
