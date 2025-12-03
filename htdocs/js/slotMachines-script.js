@@ -1,6 +1,3 @@
-  // --------------------------
-// Fruit definitions
-// --------------------------
 const FRUITS = [
   { img: "apple.png", value: 2 },
   { img: "banana.png", value: 3 },
@@ -13,14 +10,9 @@ const FRUIT_BY_NAME = {
   blueberry: FRUITS[2]
 };
 
-
-// --------------------------
-// Reel Filling
-// --------------------------
 function fillReel(reel, repeats = 4) {
   reel.innerHTML = "";
 
-  // Add 4 images so the CSS animation looks correct
   for (let r = 0; r < repeats; r++) {
       for (let fruit of FRUITS) {
         const img = document.createElement("img");
@@ -29,8 +21,6 @@ function fillReel(reel, repeats = 4) {
     }
   }
 }
-
-// Stop a reel and pick the final fruit
 
 function stopReel(reel, fruitName){
   const fruit = FRUIT_BY_NAME[fruitName]; //0, 1, or 2
@@ -44,10 +34,6 @@ function stopReel(reel, fruitName){
   return fruit;
 }
 
-// --------------------------
-// Spin patterns
-// --------------------------
-
 const SPINS = [
   ["blueberry","apple","apple"],
   ["apple","blueberry","banana"],
@@ -56,9 +42,6 @@ const SPINS = [
 
 let spinIndex = 0;
 
-// --------------------------
-// Handle animation
-// --------------------------
 function pullHandle() {
   document.getElementById("handleUp").classList.add("hidden");
   document.getElementById("handleDown").classList.remove("hidden");
@@ -71,9 +54,6 @@ function pullHandle() {
   }, 2400);
 }
 
-// --------------------------
-// Spin button logic
-// --------------------------
 const reel1 = document.getElementById("reel1");
 const reel2 = document.getElementById("reel2");
 const reel3 = document.getElementById("reel3");
@@ -83,7 +63,6 @@ let final1, final2, final3;
 document.getElementById("spinBtn").onclick = () => {
   pullHandle();
 
-  // Fill reels with random fruits for spinning effect
   fillReel(reel1);
   fillReel(reel2);
   fillReel(reel3);
@@ -92,14 +71,10 @@ document.getElementById("spinBtn").onclick = () => {
   reel2.classList.add("spin");
   reel3.classList.add("spin");
 
-// determine current spin pattern
-
   const pattern = SPINS[spinIndex];
 
-  //loop to next spin for next time
   spinIndex = (spinIndex + 1) % SPINS.length;
 
-  // Stop reels one by one
   setTimeout(() => {
     reel1.classList.remove("spin");
     final1 = stopReel(reel1, pattern[0]);
@@ -116,9 +91,6 @@ document.getElementById("spinBtn").onclick = () => {
   }, 2400);
 };
 
-// --------------------------
-// Check code input
-// --------------------------
 function checkCode() {
   if (!final1 || !final2 || !final3) {
     document.getElementById("msg").innerText = "Spin the machine first!";
