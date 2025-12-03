@@ -8,8 +8,11 @@ nav ul {
     display: flex;
 }
 
-nav .home-li {
-    margin-right: auto;
+nav .home-li{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+nav .about-li{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 nav a {
