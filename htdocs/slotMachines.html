@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>RLIC's_slotMachineRoom</title>
+    <title>RLIC's_SlotMachineRoom</title>
     <link rel="icon" type="image/x-icon" href="images/TheRedLotusInternetCasino_Logo_6.png"/>
     <link rel="stylesheet" href="css/slotMachines-master.css">
     
@@ -11,15 +11,21 @@
 </head>
 
 <body>
+    <div id="fruitGuide">
+        <img src="images/fruitguide.png" alt="Slot Machine Fruit Guide">
+    </div>
+    
     <nav>
         <ul>
             <li class="home-li"><a href="index.html">Home</a></li>
-            <li class="about-li"><a class="active" href="about.html">About</a></li>
+            <li class="about-li"><a href="about.html">About</a></li>
         </ul>
     </nav>
 
     <div class="slotMachine">
-        <img src="images/slotMachineFinished.png" alt="slot machine" class="base-image"></img>
+        <img src="images/slotMachineFinished.png" alt="slot machine" class="base-image">
+
+        <img src="images/SlotMachineFinished3.png" alt="slot machine open" class="open-machine">
 
         <div id="slot-machine">
             <div id="reel1" class="reel"></div>
@@ -33,6 +39,8 @@
 
         <div id="results"></div>
 
+        <img id="machineOpenedImage" src="images/SlotMachineOpened.png" alt="Slot Machine Opened" class="opened-reveal hidden">
+
         <div id="codeArea">
             <h2>Enter Access Code</h2>
             <input id="codeInput" maxlength="3" type="text" pattern="\d{3}">
@@ -44,19 +52,25 @@
 
     <script>
         function validateAccessCode() {
-            const correctCode = "000"; 
+            const correctCode = "774"; 
             const inputElement = document.getElementById("codeInput");
             const msgElement = document.getElementById("msg"); 
+            const openedImage = document.getElementById("machineOpenedImage"); 
             
             const enteredCode = inputElement.value.trim();
 
             if (enteredCode === correctCode) {
-                msgElement.textContent = 'Access Granted! Redirecting...';
+                msgElement.textContent = 'Access Granted! Image revealed. Redirecting in 5 seconds...';
                 msgElement.style.color = 'green';
                 
-                setTimeout(function() {
+                if (openedImage) {
+                    openedImage.classList.remove('hidden'); 
+                    openedImage.style.visibility = 'visible'; 
+                }
+
+                setTimeout(() => {
                     window.location.href = "roulette.html"; 
-                }, 1000); 
+                }, 5000); 
                 
             } else {
                 msgElement.textContent = "Incorrect Code. Try again.";
