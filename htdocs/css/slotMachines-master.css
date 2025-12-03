@@ -41,6 +41,7 @@ body {
     background-size:cover;
 }
 
+/* --- Slot Machine Layering --- */
 #slot-machine {
     position: absolute;
     top: 360px;
@@ -97,6 +98,18 @@ body {
     z-index: 20;
 }
 
+/* --- FIX: High Z-Index for the image to ensure visibility --- */
+#machineOpenedImage {
+    /* Set positioning identical to other machine overlays */
+    position: absolute;
+    top: 320px;
+    left: -138px;
+    width: 1250px;
+    height: auto;
+    z-index: 70; /* Extremely high z-index to be sure it's on top */
+    /* It is still hidden by the .hidden class initially */
+}
+
 .handle {
     position: absolute;
     top: 12px;
@@ -118,10 +131,12 @@ body {
     z-index: 50;
 }
 
+/* FIX: Ensure 'hidden' hides the image, which the JS removes */
 .hidden {
     display: none;
 }
 
+/* --- Access Code Area Styling --- */
 #codeArea {
     position: absolute; 
     top: 550px; 
@@ -190,4 +205,19 @@ body {
     top: 500px;
     left: 450px;
     z-index: 35; 
+}
+
+#fruitGuide {
+    position: absolute; 
+    top: 300px; 
+    left: 900px; 
+    z-index: 65; 
+    width: 200px;
+    height: auto;
+}
+
+#fruitGuide img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
