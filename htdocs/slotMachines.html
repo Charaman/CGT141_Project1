@@ -42,45 +42,23 @@
         <img id="machineOpenedImage" src="images/SlotMachineOpened.png" alt="Slot Machine Opened" class="opened-reveal hidden">
 
         <div id="codeArea">
-            <h2>Enter Access Code</h2>
-            <input id="codeInput" maxlength="3" type="text" pattern="\d{3}">
-            <br>
-            <button onclick="validateAccessCode()">Submit</button>
-            <p id="msg"></p>
-        </div>
+                <h2>Enter 3-Digit Code</h2>
+                <input id="codeInput" maxlength="3" type="text" pattern="\d{3}">
+                <br>
+                <button onclick="checkCode()">Submit</button>
+                <p id="msg"></p>
+
+                <a id="nextLink" href="roulette.html">
+                    <button id="nextBtn" disabled>
+                        <img src="images/button2.png"></img>
+                    </button>
+                </a>
+
+            </div>
     </div>
 
-    <script>
-        function validateAccessCode() {
-            const correctCode = "764"; 
-            const inputElement = document.getElementById("codeInput");
-            const msgElement = document.getElementById("msg"); 
-            const openedImage = document.getElementById("machineOpenedImage"); 
-            
-            const enteredCode = inputElement.value.trim();
-
-            if (enteredCode === correctCode) {
-                msgElement.textContent = 'Access Granted! Image revealed. Redirecting in 5 seconds...';
-                msgElement.style.color = 'green';
-                
-                if (openedImage) {
-                    openedImage.classList.remove('hidden'); 
-                    openedImage.style.visibility = 'visible'; 
-                }
-
-                setTimeout(() => {
-                    window.location.href = "roulette.html"; 
-                }, 5000); 
-                
-            } else {
-                msgElement.textContent = "Incorrect Code. Try again.";
-                msgElement.style.color = "red";
-                inputElement.value = '';
-            }
-        }
-    </script>
-    
     <script src="js/slotMachines-script.js"></script> 
 
 </body>
+
 </html>
