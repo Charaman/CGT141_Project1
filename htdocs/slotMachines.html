@@ -6,15 +6,15 @@
     <title>RLIC's_SlotMachineRoom</title>
     <link rel="icon" type="image/x-icon" href="images/TheRedLotusInternetCasino_Logo_6.png"/>
     <link rel="stylesheet" href="css/slotMachines-master.css">
-
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
 <body>
     <div id="fruitGuide">
-        <img src="images/fruitguide.png" alt="Slot Machine Fruit Guide">
+        <img src="images/fruitGuide.png" alt="Slot Machine Fruit Guide">
     </div>
-
+    
     <nav>
         <ul>
             <li class="home-li"><a href="index.html">Home</a></li>
@@ -25,61 +25,40 @@
     <div class="slotMachine">
         <img src="images/slotMachineFinished.png" alt="slot machine" class="base-image">
 
-        <img src="images/SlotMachineFinished3.png" alt="slot machine open" class="open-machine">
+        <img id="machineOpenedImage" src="images/SlotMachineOpened.png" alt="Slot Machine Opened" class="machine hidden">
 
         <div id="slot-machine">
             <div id="reel1" class="reel"></div>
             <div id="reel2" class="reel"></div>
             <div id="reel3" class="reel"></div>
         </div>
-
+        
         <img id="handleUp" src="images/handle1.png" class="handle">
         <img id="handleDown" src="images/handle2.png"class="handle hidden">
         <button id="spinBtn" class="handle-button"></button>
 
         <div id="results"></div>
 
-        <img id="machineOpenedImage" src="images/SlotMachineOpened.png" alt="Slot Machine Opened" class="opened-reveal hidden">
-
-        <div id="codeArea">
-            <h2>Enter Access Code</h2>
-            <input id="codeInput" maxlength="3" type="text" pattern="\d{3}">
-            <br>
-            <button onclick="validateAccessCode()">Submit</button>
-            <p id="msg"></p>
-        </div>
     </div>
 
-    <script>
-        function validateAccessCode() {
-            const correctCode = "764"; 
-            const inputElement = document.getElementById("codeInput");
-            const msgElement = document.getElementById("msg"); 
-            const openedImage = document.getElementById("machineOpenedImage"); 
+    <div id="codeArea">
+        <h2>Enter 3-Digit Code</h2>
+        <input id="codeInput" maxlength="3" type="text" pattern="\d{3}">
+        <br>
+        <button onclick="checkCode()">Submit</button>
+        <p id="msg"></p>
+        <a id="nextLink" href="roulette.html">
+            <button id="nextBtn" disabled>
+                <img src="images/button2.png"></img>
+            </button>
+        </a>
+        
+        
+    </div>
 
-            const enteredCode = inputElement.value.trim();
-
-            if (enteredCode === correctCode) {
-                msgElement.textContent = 'Access Granted! Redirecting in 5 seconds...';
-                msgElement.style.color = 'green';
-
-                if (openedImage) {
-                    openedImage.classList.remove('hidden'); 
-                    openedImage.style.visibility = 'visible'; 
-                }
-
-                setTimeout(() => {
-                    window.location.href = "roulette.html"; 
-                }, 5000); 
-
-            } else {
-                msgElement.textContent = "Incorrect Code. Try again.";
-                msgElement.style.color = "red";
-                inputElement.value = '';
-            }
-        }
-    </script>
-
-    <script src="js/slotMachines-script.js"></script> 
+<script src="js/slotMachines-script.js"></script> 
 
 </body>
+</html>
+
+    		
