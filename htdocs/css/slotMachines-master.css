@@ -36,8 +36,6 @@ nav a.active{
     border-bottom:3px solid black;
 }
 
-/* navigation bar is above */
-
 body {
     background: url("../images/casino_slots_background.png") no-repeat center center fixed;
     background-size:cover;
@@ -94,16 +92,13 @@ body {
     height: auto;
 }
 
-/* --- FIX: High Z-Index for the image to ensure visibility --- */
 #machineOpenedImage {
-    /* Set positioning identical to other machine overlays */
     position: absolute;
     top: 320px;
     left: -138px;
     width: 1250px;
     height: auto;
-    z-index: 50; /* Extremely high z-index to be sure it's on top */
-    /* It is still hidden by the .hidden class initially */
+    z-index: 50;
 }
 
 .handle {
@@ -127,12 +122,10 @@ body {
     z-index:50;
 }
 
-/* FIX: Ensure 'hidden' hides the image, which the JS removes */
 .hidden {
     display: none;
 }
 
-/* --- Access Code Area Styling --- */
 #codeArea {
     position: absolute; 
     top: 400px;
