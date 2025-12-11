@@ -17,7 +17,7 @@ function fillReel(reel, repeats = 4) {
   for (let r = 0; r < repeats; r++) {
       for (let fruit of FRUITS) {
         const img = document.createElement("img");
-        img.src = "images/" + fruit.img;
+        img.src = "images/fruits/" + fruit.img;
         reel.appendChild(img);
     }
   }
@@ -30,7 +30,7 @@ function stopReel(reel, fruitName){
     console.error("Unknown fruit name:", fruitName);
     return;
   }
-  reel.innerHTML = `<img src="images/${fruit.img}">`;
+  reel.innerHTML = `<img src="images/fruits/${fruit.img}">`;
 
   return fruit;
 }
