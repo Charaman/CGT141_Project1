@@ -17,7 +17,9 @@ nav ul {
 }
 nav .home-li {
     margin-right: auto;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+
 body {
     background: url("../images/backgrounds/BarBackground.jpg") no-repeat center center fixed;
     background-size:cover;
@@ -35,6 +37,9 @@ nav a.active {
     border-bottom:black;
 }
 
+nav .about-li {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 .main-content {
     width: 100%;
     max-width: 1200px;
