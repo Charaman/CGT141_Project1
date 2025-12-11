@@ -1,0 +1,218 @@
+nav{
+    background-color: #ffd235;
+    border-bottom: 3 px solid black;
+    width: 100%;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+}
+
+nav .home-li{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+nav .about-li{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+nav a{
+    display: block;
+    text-decoration: none;
+    color: black;
+    padding: 1em 2em;
+    transition: bockground-color 150ms ease;
+}
+
+nav a:hover{
+    background-color:#ffc300;
+}
+
+nav a.active{
+    border-bottom:3px solid black;
+}
+
+body {
+    background: url("../images/backgrounds/casino_slots_background.png") no-repeat center center fixed;
+    background-size:cover;
+}
+
+#slot-machine {
+    position: absolute;
+    top: 350px;
+    left: 350px;
+    width: 1000px;
+    height: auto;
+    overflow: hidden;
+    display: flex;
+    gap:10px;
+    z-index: 30;
+}
+
+.reel {
+    width: 100px;
+    height: 120px;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.reel img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.spin {
+    animation:spin 0.2s linear infinite;
+}
+
+@keyframes spin{
+    0% { transform:translateY(0); }
+    100% {transform: translateY(-120px);}
+}
+
+.slotMachine{
+    position: absolute;
+    display: inline-block;
+    transform: scale(0.5);
+    transform-origin: top left;
+    left: 500px;
+    top: 100px;
+    overflow: hidden;
+}
+
+.base-image {
+    display: block;
+    width: 1000px;
+    height: auto;
+}
+
+#machineOpenedImage {
+    position: absolute;
+    top: 320px;
+    left: -138px;
+    width: 1250px;
+    height: auto;
+    z-index: 50;
+}
+
+.handle {
+    position: absolute;
+    top: 12px;
+    left: 50px;
+    width: 1000px;
+    height: auto;
+    z-index: 40;
+}
+
+.handle-button {
+    position: absolute;
+    top:350px;
+    left: 700px;
+    width:200px;
+    height:400px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    z-index:50;
+}
+
+.hidden {
+    display: none;
+}
+
+#codeArea {
+    position: absolute; 
+    top: 400px;
+    right: -100px;
+    background-color: #ffd235; 
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    z-index: 60;
+    transform: scale(0.5);
+    transform-origin: top left;
+}
+
+#codeArea h2 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: black;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+
+#codeInput {
+  font-size: 1.5rem;
+  width: 80px;
+  text-align: center;
+  margin-top: 5px;
+  border: 2px solid black;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#codeArea button {
+    background-color: #ffc300; 
+    color: black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 150ms ease, transform 100ms ease;
+}
+
+#codeArea button:hover {
+    background-color: #ffd235;
+    transform: translateY(-1px);
+}
+
+#msg {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    margin-top: 10px;
+    min-height: 1.2rem;
+}
+
+.slot-row {
+    font-size: 3rem;
+    margin: 20px;
+}
+
+#results {
+    position: absolute;
+    top: 500px;
+    left: 450px;
+    z-index: 35; 
+}
+
+#fruitGuide {
+    position: absolute; 
+    top: 100px;
+    right: 200px;
+    z-index: 65; 
+    width: 200px;
+    height: auto;
+}
+
+#fruitGuide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#nextLink {
+    pointer-events: none;
+    opacity: 0.5;
+}
