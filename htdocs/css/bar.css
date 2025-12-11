@@ -1,170 +1,189 @@
-nav {
-    background-color: #ffd235;
-    border-bottom: 3px solid black;
+body { 
+    margin: 0; 
+    min-height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
 }
-
+nav { 
+    z-index: 50;
+    background-color: #ffd235;
+    border-bottom: black;
+}
 nav ul {
     list-style: none;
     display: flex;
+    margin: 0;
+    padding: 0;
 }
-
-nav .home-li{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+nav .home-li {
+    margin-right: auto;
 }
-nav .about-li{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-
 nav a {
     display: flex;
     text-decoration: none;
     color: black;
     padding: 1em 2em;
-    transition: background-color 150ms ease;
 }
-
 nav a:hover {
-    background-color: #ffc300;
+    background-color:#FFc300;
 }
-
 nav a.active {
-    border-bottom: 3px solid black;
+    border-bottom:black;
 }
 
-body {
-    background: url("../images/BarBackground.jpg");
-    background-size: cover;
+.main-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    flex: 1;
 }
-
 .puzzle-header-box {
-    width: 70%;
-    margin: 30px auto 20px auto;
-    background: rgba(255,210,53,0.9);
+    width: 90%;
+    margin: 20px auto;
+    background: rgba(255,210,53,0.95);
     border: 3px solid black;
-    padding: 20px 30px;
+    padding: 18px 24px;
     border-radius: 10px;
     text-align: center;
-    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    box-shadow: 0 0 12px rgba(0,0,0,0.35);
 }
-
-.puzzle-header-box h1 {
-    margin-top: 0;
+.puzzle-title {
+    margin: 0 0 6px 0;
+    color: #000;
+    font-family: inherit;
 }
-
-.puzzle-header-box p {
-    margin-bottom: 0;
+.puzzle-instructions {
+    margin: 0;
+    color: #111;
 }
 
 .drink-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
-    padding: 20px;
-    width: 80%;
-    margin: auto;
+    gap: 24px;
+    width: 90%;
+    margin: 28px auto;
+    align-items: start;
 }
-
+.drink {
+    background: rgba(255,255,255,0.02);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    border: 2px solid rgba(0,0,0,0.3);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
 .drink img {
     width: 100%;
-    border-radius: 10px;
-    border: 3px solid #ffd235;
-    background-color: rgba(255,255,255,0.7);
-    transition: transform 0.2s ease;
+    height: auto;
+    border-radius: 8px;
+    display: block;
 }
-
-.drink img:hover {
-    transform: scale(1.05);
-    cursor: pointer;
-}
-
 .drink-clue {
-    text-align: center;
-    background: rgba(255,210,53,0.85);
-    border-radius: 5px;
-    padding: 0.5em;
-    margin-top: 0.5em;
-    font-weight: bold;
-}
-
-.popup-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.75);
-    justify-content: center;
-    align-items: center;
-}
-
-.popup-window {
-    background: #ffd235;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    border: 3px solid black;
-}
-
-.popup-code {
-    font-size: 2em;
-    font-weight: bold;
-}
-
-.popup-close-text {
-    font-size: 0.9em;
-    margin-top: 12px;
-    opacity: 0.7;
-}
-
-.code-entry {
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 40px;
-    background: rgba(255,210,53,0.8);
-    padding: 20px;
-    width: 350px;
-    border-radius: 10px;
-    border: 3px solid black;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.code-entry input {
-    padding: 10px;
-    width: 70%;
-    border-radius: 5px;
-    border: 2px solid black;
-    font-size: 1em;
-}
-
-.code-entry button {
-    padding: 10px 20px;
-    margin-left: 10px;
-    background: #ffd235;
-    border: 2px solid black;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.code-entry button:hover {
-    background: #ffc300;
-}
-
-.code-message {
     margin-top: 10px;
-    font-weight: bold;
+    padding: 8px;
+    background: rgba(255,210,53,0.9);
+    border-radius: 6px;
+    font-weight: 700;
+    color: #000;
+    border: 2px solid black;
 }
 
 .bottom-flex {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
+    gap: 36px; width: 90%;
+    margin: 18px auto 42px auto;
+    flex-wrap: wrap;
 }
-
 .Next_Level img {
+    width: 210px;
+    border: 3px solid black;
+    border-radius: 8px;
+    display: block;
+}
+.code-entry {
+    text-align: center;
+    background: rgba(255,210,53,0.95);
+    padding: 18px;
+    border-radius: 10px;
+    border: 3px solid black;
+    width: 360px;
+    box-sizing: border-box;
+}
+.code-entry input {
+    padding: 10px;
+    width: 70%;
+    border-radius: 6px;
+    border: 2px solid black;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+.code-entry button {
+    padding: 10px 18px;
+    margin-left: 8px;
+    background: #ffd235;
+    border: 2px solid black;
+    border-radius: 6px;
     cursor: pointer;
+    font-weight: 700;
+}
+.code-message {
+    margin-top: 8px;
+    font-weight: 700;
 }
 
+.popup-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+.popup-window {
+    background: #ffd235;
+    padding: 28px;
+    border-radius: 12px;
+    text-align: center;
+    border: 3px solid black;
+    min-width: 280px;
+}
+.popup-code {
+    font-size: 2rem;
+    font-weight: 900;
+    margin: 12px 0 6px 0;
+}
+
+@media (max-width: 900px) {
+    .drink-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+    .Next_Level img {
+        width: 160px;
+    }
+    .code-entry {
+        width: 300px;
+    }
+}
+@media (max-width: 520px) {
+    .drink-grid {
+        grid-template-columns: 1fr;
+        width: 95%;
+    }
+    .bottom-flex {
+        flex-direction: column-reverse;
+        gap: 14px;
+    }
+    .Next_Level img {
+        width: 100%;
+        max-width: 260px;
+    }
+}

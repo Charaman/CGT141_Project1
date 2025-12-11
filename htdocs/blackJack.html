@@ -3,10 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RLIC's_BlackJackRoom</title>
-    <link rel="icon" type="image/x-icon" href="images/TheRedLotusInternetCasino_Logo_6.png"/>
+    <title>RLIC's_BlackjackRoom</title>
+    <link rel="icon" type="image/x-icon" href="images/random/TheRedLotusInternetCasino_Logo_6.png"/>
+    <link rel="stylesheet" href="css/blackjack.css"/>
+    <script src="js/blackjack.js" defer></script>
 </head>
 <body>
+    <div id="gameEndWin" hidden>
+        <h1 id="winner">I</h1>
+        <div id="code">9754</div>
+    </div>
+    <div id="gameEndLoss" hidden>
+        <p id="loser">You lost. Want to try again?</p>
+        <button id="restart" disabled onclick="fullClear()">Restart</button>
+    </div>
+    <div id="totalScoreZone">
+        <p>Player Score:</p>
+        <p id="totalLossOrWinsPlayer">0</p>
+        <p>AI Score:</p>
+        <p id="totalLossOrWinsAI">0</p>
+    </div>
+    <div id="topPlayer">
+        <img class="card" id="cardShowPlayer" src="images/cards/BACKOFCARD.png" alt="shownCard">
+        <button id="hit">Hit</button>
+        <button id="stand">Stand</button>
+        <p>
+            Score: 
+            <p id="scoreResultPlayer">
+                0
+            </p>
+        </p>
+        
+    </div>
+    <div id="bottomPlayer">
+        <img class="card" id="cardShowAI" src="images/cards/BACKOFCARD.png" alt="shownCard">
+        <p>
+            Score: 
+            <p id="scoreResultAI">
+                0
+            </p>
+        </p>
+    </div>
     
+    <div id="codeZone">
+        <input type="text" id="inputBox" maxlength="5" pattern="\d{5}"/>
+        <button onclick="checkCode()">SubmitCode</button>
+        <button id="output" onclick="moveToEnd()" disabled hidden>ToFeedBackPage</p>
+    </div>
 </body>
 </html>

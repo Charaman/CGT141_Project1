@@ -30,7 +30,7 @@ nav .about-li {
 }
 
 body {
-    background: url("../images/B1.jpg");
+    background: url("../images/backgrounds/B1.jpg");
     background-size:cover;
     min-height: 100vh; 
     margin: 0;
