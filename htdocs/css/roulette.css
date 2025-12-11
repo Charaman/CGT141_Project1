@@ -1,38 +1,76 @@
-nav{
+nav { 
+    z-index: 50;
     background-color: #ffd235;
     border-bottom: black;
 }
-
-nav ul{
+nav ul {
     list-style: none;
     display: flex;
+    margin: 0;
+    padding: 0;
 }
-
-nav .home-li{
-    margin-right:auto;
+nav .home-li {
+    margin-right: auto;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
-
-nav a{
+nav a {
     display: flex;
     text-decoration: none;
     color: black;
     padding: 1em 2em;
-    transition: bockground-color 150ms ease;
 }
-
-nav a:hover{
+nav a:hover {
     background-color:#FFc300;
 }
-
-nav a.active{
+nav a.active {
     border-bottom:black;
 }
 
+nav .about-li {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+body{
+    background: url(../images/backgrounds/casino_roulette_background.png) no-repeat center center fixed;
+    background-size: cover;
+}
+#page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    margin: 0;
+    min-height: 100vh;
+}
+#mContent{
+    width: 250px;
+}
 #wheel{
     width: 250px;
     height: 250px;
 }
-#spinner{
-    float: right;
-    z-index: 40;
+#numberToSpitOut{
+    padding-top: 5px;
+    text-align: center;
+}
+#inputZone{
+    background-color: #ffd235;
+    padding: 10px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    border-radius: 35px;
+    box-sizing: border-box;
+    width: 360px;
+}
+.input{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#buttonToNextRoom{
+    background-color: #ffd235;
+    padding: 25px;
+    opacity: 0.5px;
+    border-radius: 35px;
+    border: 3px solid black;
+    box-sizing: border-box;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }

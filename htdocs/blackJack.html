@@ -6,49 +6,62 @@
     <title>RLIC's_BlackjackRoom</title>
     <link rel="icon" type="image/x-icon" href="images/random/TheRedLotusInternetCasino_Logo_6.png"/>
     <link rel="stylesheet" href="css/blackjack.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="js/blackjack.js" defer></script>
 </head>
 <body>
-    <div id="gameEndWin" hidden>
-        <h1 id="winner">I</h1>
-        <div id="code">9754</div>
-    </div>
-    <div id="gameEndLoss" hidden>
-        <p id="loser">You lost. Want to try again?</p>
-        <button id="restart" disabled onclick="fullClear()">Restart</button>
-    </div>
-    <div id="totalScoreZone">
-        <p>Player Score:</p>
-        <p id="totalLossOrWinsPlayer">0</p>
-        <p>AI Score:</p>
-        <p id="totalLossOrWinsAI">0</p>
-    </div>
-    <div id="topPlayer">
-        <img class="card" id="cardShowPlayer" src="images/cards/BACKOFCARD.png" alt="shownCard">
-        <button id="hit">Hit</button>
-        <button id="stand">Stand</button>
-        <p>
-            Score: 
-            <p id="scoreResultPlayer">
-                0
-            </p>
-        </p>
-        
-    </div>
-    <div id="bottomPlayer">
-        <img class="card" id="cardShowAI" src="images/cards/BACKOFCARD.png" alt="shownCard">
-        <p>
-            Score: 
-            <p id="scoreResultAI">
-                0
-            </p>
-        </p>
-    </div>
-    
-    <div id="codeZone">
-        <input type="text" id="inputBox" maxlength="5" pattern="\d{5}"/>
-        <button onclick="checkCode()">SubmitCode</button>
-        <button id="output" onclick="moveToEnd()" disabled hidden>ToFeedBackPage</p>
+    <nav>
+        <ul>
+            <li class="home-li"><a href="index.html">Home</a></li>
+            <li class="about-li"><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+    <div id="content">
+        <div id="box">
+            <div id="gameEndWin" hidden>
+                <h1 class="title" id="winner">I</h1>
+                <p class="subtitle" id="code">Code: 9754</p>
+            </div>
+            <div class="scoreText" id="gameEndLoss" hidden>
+                <p class="subtitle" id="loser">You lost. Want to try again?</p>
+                <button class="subtitle" id="restart" disabled onclick="fullClear()">Restart</button>
+            </div>
+            <div class="scoreText" id="totalScoreZone">
+                <p class="title">Player Score:</p>
+                <p class="subtitle" id="totalLossOrWinsPlayer">0</p>
+                <p class="title">AI Score:</p>
+                <p class="subtitle" id="totalLossOrWinsAI">0</p>
+            </div>
+            <div id="topPlayer">
+                <img class="card" id="cardShowPlayer" src="images/cards/BACKOFCARD.png" alt="shownCard">
+                <button class="subtitle" id="hit">Hit</button>
+                <button class="subtitle" id="stand">Stand</button>
+                <p class="title">
+                    Score: 
+                    <p class="subtitle" id="scoreResultPlayer">
+                        0
+                    </p>
+                </p>
+                
+            </div>
+            <div id="bottomPlayer">
+                <img class="card" id="cardShowAI" src="images/cards/BACKOFCARD.png" alt="shownCard">
+                <p class="title">
+                    Score: 
+                    <p class="subtitle" id="scoreResultAI">
+                        0
+                    </p>
+                </p>
+            </div>
+            
+            <div id="codeZone">
+                <input class="subtitle" type="text" id="inputBox" maxlength="5" pattern="\d{5}"/>
+                <button class="title" onclick="checkCode()">SubmitCode</button>
+            </div>
+            <div id="button">
+                <button class="title" id="output" onclick="moveToEnd()" disabled hidden>ToFeedBackPage</p>
+            </div>
+        </div>
     </div>
 </body>
 </html>

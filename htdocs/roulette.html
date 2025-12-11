@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RLIC's_rouletteRoom</title>
+    <title>RLIC's_RouletteRoom</title>
     <link rel="icon" type="image/x-icon" href="images/random/TheRedLotusInternetCasino_Logo_6.png"/>
     <link rel="stylesheet" href="css/roulette.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -16,16 +16,19 @@
             <li class="about-li"><a href="about.html">About</a></li>
         </ul>
     </nav>
-    <div id="mContent">
-        <img id="wheel" src="images/random/loading-load.png">
-        <img id="spinnerHandle" src="images/handles/handle1.png">
-        <p id="numberToSpitOut"></p>
-    </div>
-    
-    <div id="inputZone">
-        <input type="text" id="codeBox" maxlength="8" pattern="\d{8}">
-        <button onclick="codeCheck()">Submit PassPhrase</button>
-        <button id ="output" onclick="moveTo()" disabled hidden>Poker Room</button>
+    <div id="page">
+        <div id="mContent">
+            <img id="wheel" src="images/rouletteWheel/rouletteWheel.png">
+            
+        </div>
+        <div id="inputZone">
+            <p class="input" id="numberToSpitOut"></p>
+            <input type="text" class="input" id="codeBox" maxlength="8" pattern="\d{8}">
+            <button class="input" onclick="codeCheck()">Submit Passphrase</button>
+        </div>
+        <div id="buttonToNextRoom">
+            <button id ="output" onclick="moveTo()" disabled>Poker Room</button>
+        </div>
     </div>
 
     

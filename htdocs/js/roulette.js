@@ -13,15 +13,15 @@ const passPhraseNumDict = {
     "R" : 18
 }
 const spinner_img = {
-    idleSpin : "images/random/loading-load.png",
-    spinSpin : "images/random/loading-load.gif"
+    idleSpin : "images/rouletteWheel/rouletteWheel.png",
+    spinSpin : "images/rouletteWheel/rouletteWheel.gif"
 }
 const passPhrase = ["M", "O", "N", "S", "I", "E", "U", "R"];
 const password = "monsieur";
 let spin_state = spinner_dict.IDLE;
 let passCounter = 0;
 localStorage.setItem("username", "FALSE");
-document.getElementById("spinnerHandle").onclick = () => {
+document.getElementById("wheel").onclick = () => {
     set_state(spin_state, spinner_dict.SPIN)
 }
 
@@ -38,18 +38,20 @@ function set_state(previ_state, new_state){
     spin_state = new_state;
 }
 function spin(){
-    let img = document.getElementById("wheel");
-    img.src = spinner_img.spinSpin;
-    setTimeout(() => {
-        set_state(spin_state, spinner_dict.IDLE);
-        passCounter = passCounter + 1;
-    }, 1000)
+    if(passCounter < passPhrase.length){
+        let img = document.getElementById("wheel");
+        img.src = spinner_img.spinSpin;
+        setTimeout(() => {
+            set_state(spin_state, spinner_dict.IDLE);
+            passCounter = passCounter + 1;
+        }, 1000)
+    }
 }
 function stop(){
     let img = document.getElementById("wheel");
     img.src = spinner_img.idleSpin;
     let numberField = document.getElementById("numberToSpitOut");
-    if(passCounter < 9){
+    if(passCounter < passPhrase.length){
         numberField.innerText = passPhraseNumDict[passPhrase[passCounter]];
     }
     
@@ -57,14 +59,13 @@ function stop(){
 function codeCheck(){
     let passCode = document.getElementById("codeBox").value;
     if(passCode.toLowerCase() == password){
-        document.getElementById("output").disabled = false
-        document.getElementById("output").hidden = false
-        
+        document.getElementById("output").disabled = false;
+        document.getElementById("buttonToNextRoom").style.opacity = "1";
     }
     else{
         console.log(passCode);
     }
 }
 function moveTo(){
-    window.location.href ="poker.html";
+    window.location.href = "poker.html";
 }

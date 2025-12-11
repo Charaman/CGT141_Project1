@@ -1,8 +1,60 @@
+nav{
+    background-color: #ffd235;
+    border-bottom: black;
+}
+nav ul{
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+nav .home-li{
+    margin-right:auto;
+}
+nav a{
+    display: flex;
+    text-decoration: none;
+    color: black;
+    padding: 1em 2em;
+    transition: background-color 150ms ease;
+}
+nav a:hover{
+    background-color:#FFc300;
+}
+nav a.active{
+    border-bottom: 3px solid black; 
+}
+nav .home-li,
+nav .about-li {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+body{
+    background: url(../images/backgrounds/casino_blackjack_background.png) no-repeat center center fixed;
+    background-size: cover;
+}
+#content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#box{
+    background-color: #ffd235;
+    padding: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
 .card {
     width: 300px;
     height: 300px;
 }
-#overlay{
-    position:fixed;
-    z-index: 9999;
+.title {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+}
+.subtitle{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center
 }
