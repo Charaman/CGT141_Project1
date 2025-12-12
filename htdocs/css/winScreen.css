@@ -1,0 +1,66 @@
+nav{
+    background-color: #ffd235;
+    border-bottom: 3 px solid black;
+    width: 100%;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+}
+
+nav .home-li{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+nav .about-li{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+nav a{
+    display: block;
+    text-decoration: none;
+    color: black;
+    padding: 1em 2em;
+    transition: bockground-color 150ms ease;
+}
+
+nav a:hover{
+    background-color:#ffc300;
+}
+
+nav a.active{
+    border-bottom:3px solid black;
+}
+
+body {
+    background: url("../images/backgrounds/the-casino-entrance.png") no-repeat center center fixed;
+    background-size:cover;
+}
+
+.info {
+    background-color: #FFc300;
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    transform: scale(0.6);
+    font-size: large;
+}
+
+h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: black;
+    letter-spacing: 3px;
+    font-size: 40px;
+}
+
+p {
+    font-family: sans-serif;
+    color: black;
+    font-size: 2rem;
+}
