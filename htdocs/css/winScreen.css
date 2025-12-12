@@ -64,3 +64,21 @@ p {
     color: black;
     font-size: 2rem;
 }
+
+button {
+    background-color: #ffc300; 
+    color: black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 3rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 150ms ease, transform 100ms ease;
+}
+
+button:hover {
+    background-color: #ffd235;
+    transform: translateY(-1px);
+}
