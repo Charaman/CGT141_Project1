@@ -10,7 +10,6 @@ const FRUIT_BY_NAME = {
   banana: FRUITS[1],
   blueberry: FRUITS[2]
 };
-
 function fillReel(reel, repeats = 4) {
   reel.innerHTML = "";
 

@@ -96,3 +96,8 @@ html{
     scrollbar-color: #febd14 #c30010;
     scrollbar-width: 0px;
 }
+.disabled{
+    pointer-events: none;
+    color: grey;
+    opacity: 0.5;
+}
