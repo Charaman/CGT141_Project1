@@ -18,7 +18,6 @@ const card_8 = document.getElementById("card_8");
 const end_button = document.getElementById("finish_game")
 
 
-//making an array of cards so that they can all be called and that the selection for the first and last in the pair can alternate
 const cards = [card_1, card_2, card_3, card_4, card_5, card_6, card_7, card_8];
 
 cards.forEach((card, index) => {
@@ -27,22 +26,19 @@ cards.forEach((card, index) => {
     card.addEventListener("click", () => {
         if (!has_selection_made) {
             first_sel(cardNumber);
-            has_selection_made = true; // mark that first selection is made
+            has_selection_made = true;
         } else {
             second_sel(cardNumber);
-            has_selection_made = false; // reset for next turn
+            has_selection_made = false; 
         }
     });
 });
 
-//the clicking of the game over button
 end_button.addEventListener("click", leave_page)
 
 function first_sel(card_number) {
-    // registering the card selected and has_selection_made is their to see if the player has cosent their first in the pair of cards
     Selected_1=card_number;
     has_selection_made=true;
-    // the transformation of the card
     if(card_number==1){
         document.getElementById("card_1_img").src = "images/poker_images/heart.jpg";
     }if(card_number==2){
@@ -64,7 +60,6 @@ function first_sel(card_number) {
 
 function second_sel(card_number){
     Selected_2=card_number;
-        // the "flipping" of the card
     if(card_number==1){
         document.getElementById("card_1_img").src = "images/poker_images/heart.jpg";
     }if(card_number==2){
@@ -82,7 +77,6 @@ function second_sel(card_number){
     }if(card_number==8){
         document.getElementById("card_8_img").src = "images/poker_images/heart.jpg";
     }
-    //checking to see if the cards match, delayed by two seconds so the player can see the card "flip"
         setTimeout( () => {
         if([1,8].includes(Selected_1) && [1,8].includes(Selected_2) ){
             const img_gone = document.getElementById("card_1");
@@ -109,7 +103,7 @@ function second_sel(card_number){
             img_gone2.style.visibility = "hidden";
             pair_4=true;
         }
-        else{ //if the cards dont match they "flip over" again
+        else{ 
             document.getElementById("card_1_img").src = "images/poker_images/Card_background.jpg";
             document.getElementById("card_2_img").src = "images/poker_images/Card_background.jpg";
             document.getElementById("card_3_img").src = "images/poker_images/Card_background.jpg";
@@ -124,10 +118,9 @@ function second_sel(card_number){
     has_selection_made=false;
     
 }
-//making the button apear once all of the cards have matched
 function game_won (){
     if(pair_1 && pair_2 && pair_3 && pair_4) {
-        alert("the passcode is: 101");
+        alert("The Code is: 101");
     }
 }
 
