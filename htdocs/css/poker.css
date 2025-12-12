@@ -8,6 +8,7 @@ nav ul{
 }
 nav .home-li{
     margin-right:auto;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 nav a{
     display: flex;
@@ -22,7 +23,6 @@ nav a:hover{
 nav a.active{
     border-bottom:black;
 }
-/* navigation bar is above */
 body {
     background: url("../images/poker_images/poker_bg.jpg");
     background-size:cover;
@@ -45,10 +45,13 @@ body {
     width: 10px;
     height: 635px;
 }
+nav .about-li{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 .cards{
     height: 286px;
     width: 198px;
-    margin: 0 20px 54px 0; /* the seccond is space to the right and the thrid is space down*/ 
+    margin: 0 20px 54px 0; 
     
 }
 #code_container{
