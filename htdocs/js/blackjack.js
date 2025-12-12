@@ -20,15 +20,15 @@ const cards = {
 }
 const cardNames = ["ACE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN", "JACK", "QUEEN", "KING"]
 let state = turnState.PLAYER;
-let ai_Turns = 0
-let ref_elem = "---"
-let ref_elem2 = "---"
-let goal = 3
-let code = 9754
+let ai_Turns = 0;
+let ref_elem = "---";
+let ref_elem2 = "---";
+let goal = 3;
+let code = 9754;
 document.getElementById("hit").onclick = () => {
     if(state == turnState.PLAYER){
-        ref_elem = "scoreResultPlayer"
-        ref_elem2 = "cardShowPlayer"
+        ref_elem = "scoreResultPlayer";
+        ref_elem2 = "cardShowPlayer";
         hit();
     }
 }
@@ -42,10 +42,10 @@ function set_state(prev_state, new_state){
     if(new_state == turnState.AI){
         ref_elem = "scoreResultAI"
         ref_elem2 = "cardShowAI"
-        ai_Run()
+        ai_Run();
     }
     else if(new_state == turnState.JUDGE){
-        judgeScore()
+        judgeScore();
     }
     state = new_state;
 }
@@ -61,13 +61,13 @@ function hit(){
 }
 function stand(newState){
     if(newState == turnState.AI){
-        ai_Turns = Math.round(Math.random() * 3) + 2
+        ai_Turns = Math.round(Math.random() * 3) + 2;
     }
     set_state(state, newState);
 }
 function ai_Run(){
     let i = 0;
-    let stop = false
+    let stop = false;
     while(i < ai_Turns){
         let score = Number(document.getElementById("scoreResultAI").innerText);
         let random = Math.round(Math.random() * 10)
@@ -149,8 +149,8 @@ function clear(){
     document.getElementById("cardShowPlayer").src = "images/cards/BACKOFCARD.png";
     document.getElementById("cardShowAI").src = "images/cards/BACKOFCARD.png";
     ai_Turns = 0;
-    let playerTotal = document.getElementById("totalLossOrWinsPlayer").innerText
-    let aiTotal = document.getElementById("totalLossOrWinsAI").innerText
+    let playerTotal = document.getElementById("totalLossOrWinsPlayer").innerText;
+    let aiTotal = document.getElementById("totalLossOrWinsAI").innerText;
     if(playerTotal < goal && aiTotal < goal){
         setTimeout(() => {
             set_state(state, turnState.PLAYER);
@@ -162,10 +162,10 @@ function clear(){
 }
 function checkTotalScore(playerTotal, aiTotal){
     if(playerTotal >= goal ){
-        end_game("Player")
+        end_game("Player");
     }
     else if(aiTotal >= goal){
-        end_game("AI")
+        end_game("AI");
     }
 }
 function fullClear(){
@@ -178,21 +178,22 @@ function fullClear(){
     document.getElementById("totalLossOrWinsPlayer").innerText = 0;
     document.getElementById("totalLossOrWinsAI").innerText = 0;
 
-    ai_Turns = 0
-    ref_elem = "---"
-    ref_elem2 = "---"
+    ai_Turns = 0;
+    ref_elem = "---";
+    ref_elem2 = "---";
 
     setTimeout(() => {
-        set_state(state, turnState.PLAYER)
+        set_state(state, turnState.PLAYER);
     }, 1250)
 }
 function checkCode(){
     let inputCode = document.getElementById("inputBox").value
     if(inputCode == code){
-        document.getElementById("output").disabled = false
-        document.getElementById("output").hidden = false
+        document.getElementById("output").disabled = false;
+        document.getElementById("output").hidden = false;
     }
 }
 function moveToEnd(){
-    window.location.href = "winScreen.html"
+    window.location.href = "winScreen.html";
+    localStorage.setItem("linkEnabled", "true");
 }
