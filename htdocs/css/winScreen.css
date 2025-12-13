@@ -65,7 +65,7 @@ p {
     font-size: 2rem;
 }
 
-button {
+.btn {
     background-color: #ffc300; 
     color: black;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -78,7 +78,7 @@ button {
     transition: background-color 150ms ease, transform 100ms ease;
 }
 
-button:hover {
+.btn:hover {
     background-color: #ffd235;
     transform: translateY(-1px);
 }
